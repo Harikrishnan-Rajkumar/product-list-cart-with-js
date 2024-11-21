@@ -106,12 +106,14 @@ document.querySelectorAll('.add-cart-container').forEach(function(container) {
         
         cartListItem.querySelector('.removeBtn').addEventListener('click', (event) => {
           let itemIndex = event.target.closest('.removeBtn').getAttribute('data-index');
+          let itemToRemove = cartItems[itemIndex];
+          
           cartItems.splice(itemIndex  , 1);
           
           let itemContainer = Array.from(addToCartContainers).find(container => {
             let title = container.closest('.img-conatiner').querySelector('.title').textContent;
             let price = container.closest('.img-conatiner').querySelector('.price').textContent;
-            return item.title === title && item.price === price;
+            return itemToRemove.title === title && itemToRemove.price === price;
           });
           let btn = itemContainer.querySelector('.add-to-cart');
           let dessertImages = container.closest('.img-conatiner').querySelectorAll('.dessert-img');
