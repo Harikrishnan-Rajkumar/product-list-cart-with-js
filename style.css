@@ -398,19 +398,26 @@ hr{
 
 @media (max-width: 576px){
     :root{
-        --fs-100: clamp(8px, calc(2px + 2.8vw), 76px);
-        --fs-150: clamp(8px, calc(2px + 3vw), 76px);
-        --fs-200: clamp(8px, calc(2px + 3.5vw), 76px);
-        --fs-250: clamp(8px, calc(2px + 3.5vw), 76px);
-        --fs-350: clamp(8px, calc(2px + 3.5vw), 76px);
-        --fs-400: clamp(8px, calc(2px + 3.5vw), 76px); 
-        --fs-450: clamp(11px, calc(2px + 4.3vw), 76px);
-        --fs-500: clamp(10px, calc(3px + 6.5vw), 85px); 
-        --fs-700: clamp(23px, calc(2px + 8.5vw), 130px); 
+        --fs-100: clamp(10px, calc(6px + 2.8vw), 76px);
+        --fs-150: clamp(10px, calc(6px + 3vw), 76px);
+        --fs-200: clamp(10px, calc(6px + 2.8vw), 76px);
+        --fs-250: clamp(10px, calc(6px + 3.5vw), 76px);
+        --fs-350: clamp(10px, calc(6px + 3.5vw), 76px);
+        --fs-400: clamp(10px, calc(6px + 3.5vw), 76px); 
+        --fs-450: clamp(13px, calc(6px + 4.3vw), 76px);
+        --fs-500: clamp(12px, calc(6px + 6vw), 85px); 
+        --fs-700: clamp(26px, calc(10px + 10vw), 130px); 
+    }
+    
+    .container-fluid{
+        padding-block: 9vw !important;
+    }
+    .main-heading{
+        padding-bottom: 1.5vw;
     }
     .add-cart-container{
         bottom: -6%;
-        width: 40%;
+        width: 45%;
     }
     .add-to-cart{    
         padding-block: 4.5%;
