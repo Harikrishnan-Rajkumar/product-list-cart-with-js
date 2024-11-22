@@ -1,5 +1,4 @@
-let cartItems = [];
-let selectedItems = [];       
+let cartItems = [];    
 let addToCartContainers = document.querySelectorAll('.add-cart-container');
 
 document.querySelectorAll('.add-cart-container').forEach(function(container) {
@@ -24,7 +23,7 @@ document.querySelectorAll('.add-cart-container').forEach(function(container) {
     if (existingItem) {
       existingItem.qty++; 
     } else{
-      cartItems.push({ title, price, qty: 1, thumbnail });
+      cartItems.push({ title, price, qty: 1, thumbnail, container: container });
     }
     updateCart();
   };
@@ -106,18 +105,17 @@ document.querySelectorAll('.add-cart-container').forEach(function(container) {
         
         cartListItem.querySelector('.removeBtn').addEventListener('click', (event) => {
           let itemIndex = event.target.closest('.removeBtn').getAttribute('data-index');
-          let itemToRemove = cartItems[itemIndex];
-          
+          let item = cartItems[itemIndex];
           cartItems.splice(itemIndex  , 1);
-          
-          let itemContainer = Array.from(addToCartContainers).find(container => {
-            let title = container.closest('.img-conatiner').querySelector('.title').textContent;
-            let price = container.closest('.img-conatiner').querySelector('.price').textContent;
-            return itemToRemove.title === title && itemToRemove.price === price;
-          });
+
+          let itemContainer = item.container;
           let btn = itemContainer.querySelector('.add-to-cart');
-          let dessertImages = container.closest('.img-conatiner').querySelectorAll('.dessert-img');
+          let dessertImages = itemContainer.closest('.img-conatiner').querySelectorAll('.dessert-img');
           let selectedBtn = itemContainer.querySelector('.add-to-cart-selected');
+          let itemCountElement = itemContainer.querySelector('.itemCount');
+          if (itemCountElement) {
+            itemCountElement.textContent = 1;
+          }
           
           selectedBtn.classList.add('d-none');  
           selectedBtn.classList.remove('selected');
